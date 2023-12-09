@@ -15,15 +15,12 @@
 	let redirect = $page.url.searchParams.get('redirect') ?? '';
 
 	let name = '';
-	let usn = '';
 	let username = '';
-	let phone = '';
 	let loading = false;
 	let isAvailable = false;
 
 	const reUsername = /^(?=[a-z0-9._]{3,16}$)(?!.*[_.]{2})[^_.].*[^_.]$/;
 	const reName = /(^[a-zA-Z][a-zA-Z\s]{0,48}[a-zA-Z]$)/;
-	const reUSN = /^[A-Z0-9]*$/;
 
 	$: isValidName = name?.length > 4 && name.length < 48 && reName.test(name);
 	$: isTouchedName = name.length >= 1;

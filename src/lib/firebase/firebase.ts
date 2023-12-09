@@ -30,7 +30,6 @@ const firebaseConfig = {
   appId: "1:428628828020:web:39a796d2545be7835b9621",
 };
 
-
 // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
 let app: FirebaseApp;
@@ -128,6 +127,17 @@ interface UserData {
   isAdmin: boolean;
 }
 
+// export const userData: Readable<UserData | null> = derived(
+//   userID,
+//   ($userID, set) => {
+//     if ($userID && $userID.user !== "") {
+//       // console.log('userData updated, now tracking user/', $userID.user);
+//       return docStore<UserData>(`user/${$userID.user}`).subscribe(set);
+//     } else {
+//       set(null);
+//     }
+//   }
+// );
 export const userData: Readable<UserData | null> = derived(
   userID,
   ($userID, set) => {
@@ -139,7 +149,6 @@ export const userData: Readable<UserData | null> = derived(
     }
   }
 );
-
 
 /* ************************************************************************** */
 

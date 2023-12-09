@@ -23,6 +23,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@bulatdashiev/svelte-slider": "^1.0.3",
 		"bits-ui": "^0.11.6",
 		"clsx": "^2.0.0",
 		"firebase": "^10.7.1",
