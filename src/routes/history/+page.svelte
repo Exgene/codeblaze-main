@@ -9,7 +9,7 @@
 {#if $userData?.isAdmin}
   <div class="flex flex-wrap gap-8 justify-center mt-8">
     {#each value.products as bid}
-      {#if bid.flag === 0}
+      {#if bid.flag === 1}
         <BidCards
           dbMaxBid={bid.maxValue}
           dbMinBid={bid.minValue}
@@ -24,14 +24,20 @@
 {:else}
   <div class="flex flex-wrap gap-8 justify-center mt-8">
     {#each value.products as bid}
-      <BidCards
-        dbMaxBid={bid.maxValue}
-        dbMinBid={bid.minValue}
-        currentBid={bid.curBid}
-        time={bid.time}
-        productName={bid.name}
-        imageURL={bid.Imageurl}
-      />
+     {#if bid.flag === 1}
+        <BidCards
+          dbMaxBid={bid.maxValue}
+          dbMinBid={bid.minValue}
+          currentBid={bid.curBid}
+          time={bid.time}
+          productName={bid.name}
+          imageURL={bid.Imageurl}
+        />
+      {/if}
     {/each}
+    <!-- <BidCards />
+    <BidCards />
+    <BidCards />
+    <BidCards /> -->
   </div>
 {/if}
