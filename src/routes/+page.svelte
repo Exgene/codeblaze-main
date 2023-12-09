@@ -13,7 +13,7 @@
         currentBid={bid.curBid}
         time={bid.time}
         productName={bid.name}
-        imageURL={bid.imageURL}
+        imageURL={bid.Imageurl}
       />
     {/each}
   </div>
@@ -24,7 +24,7 @@
         currentBid={bid.curBid}
         time={bid.time}
         productName={bid.name}
-        imageURL={bid.imageURL}
+        imageURL={bid.Imageurl}
       />
     {/each}
     <!-- <BidCards />

@@ -23,6 +23,7 @@
   let previewURL = "";
   let uploading = false;
   let description = "";
+  let g_url="";
 
   async function upload(e: any) {
     uploading = true;
@@ -41,17 +42,10 @@
       const url = await getDownloadURL(result.ref);
       console.log(url);
       //   await updateDoc(doc(db, "products", $userID!.user), { imageURL: url });
-      const reference = doc(db, "bids", name);
-      const exists = await getDoc(reference).then((doc) => doc.exists());
-      const batch = writeBatch(db);
-      const bidRef = doc(db, "products", name);
-      batch.set(bidRef, {
-        url: url,
-      });
-      await batch.commit();
       // alert('Your profile photo has been updated!');
       alert("Photo Uploaded");
       uploading = false;
+      g_url= url;
     }
   }
 
@@ -73,6 +67,7 @@
       endTime: new Date().getTime() + time * 1000,
       maxValue: maxValue,
       minValue: minValue,
+      Imageurl: g_url
     });
     await batch.commit();
     alert("Bid added successfully");
@@ -147,10 +142,10 @@
           <p class="mt-1 text-sm text-muted-foreground">Maximum bid amount</p>
         </div>
       </Card.Content>
+      <Input type="file" on:change={upload}>Drive</Input>
       <Card.Footer>
         <Button class="w-full" type="submit">Submit</Button>
       </Card.Footer>
-      <Input type="file" on:change={upload}>Drive</Input>
     </form>
   </Card.Root>
 </div>

@@ -20,7 +20,6 @@
     <Card.Content class="flex flex-col items-center justify-center gap-4">
       <div class="border w-32 h-32 rounded-lg">
         <img src={imageURL} alt=""/>
-        {console.log(imageURL)}
       </div>
       <div class="border w-64"></div>
       <div class="text-center">
