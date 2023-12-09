@@ -1,9 +1,10 @@
 <script>
   import { page } from "$app/stores";
   import UserCard from "$lib/components/UserCard.svelte";
-  let data = $page.params.productId;
+  export let data;
+  const value = data.body;
 </script>
 
 <div class="">
-  <UserCard productId={data} />
+  <UserCard  />
 </div>

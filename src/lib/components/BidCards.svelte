@@ -2,14 +2,14 @@
   import { goto } from "$app/navigation";
   import { Button } from "$lib/components/ui/button";
   import * as Card from "$lib/components/ui/card";
-  export let productId = "123";
+  export let productId = "";
   export let imageURL = "";
   export let productName = "";
   export let currentBid = "";
   export let time = "";
 </script>
 
-<button on:click={() => goto(`/${productId}`)}>
+<button on:click={() => goto(`/${imageURL}`)}>
   <Card.Root class="m-2 w-[350px] cursor-pointer shadow-lg">
     <Card.Header class="space-y-1">
       <Card.Title class="text-2xl text-center"
