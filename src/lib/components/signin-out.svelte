@@ -17,9 +17,9 @@
 </script>
 
 {#if $user}
-	<Button variant="ghost" on:click={signOutSSR}>Sign out</Button>
+	<Button on:click={signOutSSR}>Sign out</Button>
 {:else}
-	<Button variant="ghost" on:click={signInWithGoogle}>
+	<Button on:click={signInWithGoogle}>
 		Login
 	</Button>
 {/if}

@@ -1,7 +1,8 @@
 <script>
-  import BidCards from "$lib/components/BidCards.svelte";
+
+  import BidCardsHistory from "$lib/components/BidCardsHistory.svelte";
   import { user, userData } from "$lib/firebase/firebase";
-  import { checkAdmin } from "$lib/utils/checkadmin";
+
   export let data;
   const value = data.body;
 </script>
@@ -10,7 +11,7 @@
   <div class="flex flex-wrap gap-8 justify-center mt-8">
     {#each value.products as bid}
       {#if bid.flag === 1}
-        <BidCards
+        <BidCardsHistory
           dbMaxBid={bid.maxValue}
           dbMinBid={bid.minValue}
           currentBid={bid.curBid}
@@ -25,7 +26,7 @@
   <div class="flex flex-wrap gap-8 justify-center mt-8">
     {#each value.products as bid}
      {#if bid.flag === 1}
-        <BidCards
+        <BidCardsHistory
           dbMaxBid={bid.maxValue}
           dbMinBid={bid.minValue}
           currentBid={bid.curBid}

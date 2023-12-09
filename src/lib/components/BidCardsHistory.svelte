@@ -1,17 +1,13 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import { Button } from "$lib/components/ui/button";
   import * as Card from "$lib/components/ui/card";
-  import { Input } from "$lib/components/ui/input";
   import { db, user } from "$lib/firebase/firebase";
   import { collection, doc, updateDoc } from "firebase/firestore";
-  import type { fromJSON } from "postcss";
-  export let productId = "";
+
   export let imageURL = "";
   export let productName = "";
-  export let currentBid;
-  export let dbMinBid;
-  export let dbMaxBid;
+  export let currentBid: number;
+  export let dbMinBid: number;
+  export let dbMaxBid: number;
   export let time = "";
   let bidAmt = 0;
 
@@ -53,20 +49,24 @@
       </div>
       <div class="border w-64"></div>
       <div class="text-center">
-        <p class="text-slate-600">Current Bid : <span class="text-black font-medium">{currentBid}</span></p>
-        <p class="text-slate-600">Maximum Bid : <span class="text-black font-medium">{dbMaxBid}</span></p>
-        <p class="text-slate-600">Minimum Bid : <span class="text-black font-medium">{dbMinBid}</span></p>
-        <p class="text-slate-600">Time : <span class="text-black font-medium">{time}</span></p>
+        <p class="text-slate-600">
+          Current Bid : <span class="text-black font-medium">{currentBid}</span>
+        </p>
+        <p class="text-slate-600">
+          Maximum Bid : <span class="text-black font-medium">{dbMaxBid}</span>
+        </p>
+        <p class="text-slate-600">
+          Minimum Bid : <span class="text-black font-medium">{dbMinBid}</span>
+        </p>
+        <p class="text-slate-600">
+          Time : <span class="text-black font-medium">{time}</span>
+        </p>
       </div>
       <form
         on:submit|preventDefault={() => {
           handleSubmit();
         }}
-      >
-        <Input type="number" bind:value={bidAmt}/>
-        <!-- <p>{bidAmt}</p> -->
-        <Button type="submit" class="mt-4">Submit</Button>
-      </form>
+      ></form>
     </Card.Content>
   </Card.Root>
 </button>
